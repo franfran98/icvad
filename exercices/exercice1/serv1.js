@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 8080
+const port = 4567
 const axios = require('axios');
 
 app.get('/', (req, res) => {
@@ -8,12 +8,10 @@ app.get('/', (req, res) => {
     status: 200,
     message: 'pong',
   })
-
   setTimeout(function(){
-    axios.get('http://localhost:8000/message')
+    axios.get('http://localhost:5372/message')
     .then(response => {
       console.log(response.data);
-      
     })
     .catch(error => {
       console.log(error);
@@ -25,7 +23,7 @@ app.get('/', (req, res) => {
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
-  axios.get('http://localhost:8000')
+  axios.get('http://localhost:5372')
     .then(response => {
       console.log(response.data);
       
